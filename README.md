@@ -1,3 +1,18 @@
+## StudyFlow Project | WDD430 | BYU-I
+
+## TEAM MEMBERS
+
+- Ronaldo Venancio
+- Obakeng Kennedy Diphala
+- Horacio Velarde Riquelme
+- Bruno Celada
+
+## Project Description
+
+StudyFlow is a full-stack web application designed to help students organize their academic tasks and study sessions in one place. Users will be able to create an account, manage assignments and deadlines, schedule study sessions, and track their progress through a simple dashboard. The application is intended for students who want a clearer and more organized way to manage their workload.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
