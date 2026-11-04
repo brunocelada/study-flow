@@ -11,6 +11,25 @@
 
 StudyFlow is a full-stack web application designed to help students organize their academic tasks and study sessions in one place. Users will be able to create an account, manage assignments and deadlines, schedule study sessions, and track their progress through a simple dashboard. The application is intended for students who want a clearer and more organized way to manage their workload.
 
+### Prettier json file
+
+(.prettierrc)
+
+```
+{
+  "semi": true,              // Add semicolons at the end of statements.
+  "singleQuote": false,      // Use doble quotes instead of single.
+  "tabWidth": 2,             // Specify the number of spaces per indentation level.
+  "useTabs": false,          // Use spaces instead of tab characters.
+  "trailingComma": "all",    // Add trailing commas wherever possible.
+  "printWidth": 100,         // Set the maximum line length to 100 characters.
+  "bracketSpacing": true,    // Add spaces between brackets in object literals.
+  "bracketSameLine": false,  // Place the closing bracket of multiline elements on a new line.
+  "arrowParens": "always",   // Always include parentheses around arrow function parameters.
+  "endOfLine": "lf"          // Use LF (\n) as the line ending format.
+}
+```
+
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
