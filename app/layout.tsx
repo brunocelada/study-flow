@@ -1,3 +1,14 @@
+/*
+ * ROOT APPLICATION LAYOUT
+ *
+ * - Define the global HTML structure (html and body).
+ * - Import global CSS styles and Tailwind configuration.
+ * - Configure global metadata (application title, description, etc.).
+ * - Include global providers or context providers when needed.
+ * - Apply global fonts and shared styles.
+ * - Render all application routes through the children prop.
+ */
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

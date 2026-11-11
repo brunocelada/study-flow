@@ -1,0 +1,4 @@
+We can use 
+-logo.svg
+-hero-img.png
+-default-avatar.png
