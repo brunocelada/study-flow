@@ -1,3 +1,13 @@
+/*
+ * LANDING PAGE (/)
+ *
+ * - Present the StudyFlow application and its main purpose.
+ * - Display a brief introduction to the platform and its features.
+ * - Provide clear navigation options to sign in or create an account.
+ * - Include a call-to-action to encourage users to get started.
+ * - Keep the page accessible to both authenticated and unauthenticated users.
+ */
+
 import Image from "next/image";
 
 export default function Home() {
