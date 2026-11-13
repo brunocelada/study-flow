@@ -9,3 +9,11 @@
  * - Display validation errors and submission feedback.
  * - Redirect the user to the session list or newly created session after successful submission.
  */
+
+export default function NewStudySessionPage() {
+  return (
+    <main>
+      <h1>New Study Session</h1>
+    </main>
+  );
+}

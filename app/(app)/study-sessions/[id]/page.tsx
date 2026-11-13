@@ -10,3 +10,11 @@
  * - Handle invalid IDs, missing sessions, and unauthorized access.
  * - Display feedback after successful updates or deletion.
  */
+
+export default function StudySessionPage() {
+  return (
+    <main>
+      <h1>ID Study Session</h1>
+    </main>
+  );
+}

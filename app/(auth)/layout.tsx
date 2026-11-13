@@ -7,3 +7,11 @@
  * - Apply a consistent visual design to all authentication pages.
  * - Keep the layout separate from the authenticated application dashboard.
  */
+
+export default function AppLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}

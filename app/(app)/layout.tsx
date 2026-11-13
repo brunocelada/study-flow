@@ -10,3 +10,11 @@
  * - Provide access to the logout action.
  * - Render the selected page through the children prop.
  */
+
+export default function AppLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}

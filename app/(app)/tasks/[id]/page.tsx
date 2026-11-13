@@ -10,3 +10,11 @@
  * - Handle invalid IDs, missing tasks, and unauthorized access.
  * - Display feedback after successful updates or deletion.
  */
+
+export default function TaskPage() {
+  return (
+    <main>
+      <h1>ID Task</h1>
+    </main>
+  );
+}

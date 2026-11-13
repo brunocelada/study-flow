@@ -7,3 +7,11 @@
  * - Maintain consistent spacing and dimensions to minimize layout shifts.
  * - Do not perform data fetching or render actual dashboard information.
  */
+
+export default function DashboardPage() {
+  return (
+    <main>
+      <h1>Loading Dashboard</h1>
+    </main>
+  );
+}
