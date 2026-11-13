@@ -8,9 +8,6 @@
  * - Provide navigation to view or edit individual sessions.
  * - Handle empty states when the user has no study sessions.
  * - Display appropriate feedback when sessions cannot be retrieved.
-<<<<<<< Updated upstream
- */
-=======
  */
 /*Please de;lete this message after reading it*/
 
@@ -21,4 +18,3 @@ export default function StudySessionsPage() {
     </main>
   );
 }
->>>>>>> Stashed changes
