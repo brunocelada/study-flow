@@ -1,4 +1,3 @@
-
 import type { HTMLAttributes } from "react";
 
 type CardPadding = "none" | "sm" | "md" | "lg";
@@ -22,7 +21,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`rounded-xl border border-slate-200 bg-white shadow-sm
+      className={`rounded-xl border border-border bg-surface shadow-sm
         ${paddings[padding]} ${className}`}
       {...props}
     >

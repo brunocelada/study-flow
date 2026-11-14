@@ -1,4 +1,3 @@
-
 import type { TextareaHTMLAttributes } from "react";
 
 interface TextareaProps
@@ -15,14 +14,16 @@ export default function Textarea({
     <textarea
       {...props}
       aria-invalid={invalid || undefined}
-      className={`w-full min-h-24 resize-y rounded-lg border bg-white px-3 py-2.5
-        text-sm text-slate-900 outline-none transition-colors
-        placeholder:text-slate-400
-        focus:border-blue-600 focus:ring-2 focus:ring-blue-100
-        disabled:cursor-not-allowed disabled:bg-slate-100
-        ${invalid
-          ? "border-red-500 focus:border-red-600 focus:ring-red-100"
-          : "border-slate-200"}
+      className={`w-full min-h-24 resize-y rounded-lg border bg-surface px-3 py-2.5
+        text-sm text-foreground outline-none transition-colors
+        placeholder:text-muted
+        focus:border-primary focus:ring-2 focus:ring-primary-light
+        disabled:cursor-not-allowed disabled:bg-surface-secondary disabled:text-muted
+        ${
+          invalid
+            ? "border-error focus:border-error focus:ring-error-light"
+            : "border-border"
+        }
         ${className}`}
     />
   );
