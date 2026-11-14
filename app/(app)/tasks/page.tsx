@@ -9,3 +9,11 @@
  * - Handle empty states when the user has no tasks.
  * - Display appropriate feedback when tasks cannot be retrieved.
  */
+
+export default function TasksPage() {
+  return (
+    <main>
+      <h1>Tasks</h1>
+    </main>
+  );
+}

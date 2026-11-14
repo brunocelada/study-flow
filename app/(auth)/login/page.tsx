@@ -9,3 +9,11 @@
  * - Redirect successfully authenticated users to the dashboard.
  * - Provide a link to the registration page.
  */
+
+export default function LoginPage() {
+  return (
+    <main>
+      <h1>Login</h1>
+    </main>
+  );
+}

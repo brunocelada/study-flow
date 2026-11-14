@@ -8,3 +8,11 @@
  * - Validate profile changes before saving them.
  * - Provide feedback when profile information is successfully updated or an error occurs.
  */
+
+export default function UserPage() {
+  return (
+    <main>
+      <h1>User</h1>
+    </main>
+  );
+}

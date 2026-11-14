@@ -9,3 +9,11 @@
  * - Display validation errors and submission feedback.
  * - Redirect the user to the task list or newly created task after successful submission.
  */
+
+export default function NewTaskPage() {
+  return (
+    <main>
+      <h1>New Task</h1>
+    </main>
+  );
+}

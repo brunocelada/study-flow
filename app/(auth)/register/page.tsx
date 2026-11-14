@@ -10,3 +10,11 @@
  * - Redirect successfully registered users to the appropriate page.
  * - Provide a link to the login page.
  */
+
+export default function RegisterPage() {
+  return (
+    <main>
+      <h1>Register</h1>
+    </main>
+  );
+}

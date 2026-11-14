@@ -9,3 +9,11 @@
  * - Provide quick navigation to create tasks and study sessions.
  * - Organize information into clear and reusable dashboard components.
  */
+
+export default function DashboardPage() {
+  return (
+    <main>
+      <h1>Dashboard</h1>
+    </main>
+  );
+}

@@ -10,3 +10,11 @@
  * - Display appropriate feedback when sessions cannot be retrieved.
  */
 /*Please de;lete this message after reading it*/
+
+export default function StudySessionsPage() {
+  return (
+    <main>
+      <h1>Study Sessions</h1>
+    </main>
+  );
+}
