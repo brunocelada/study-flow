@@ -1,5 +1,11 @@
-/*
- * task.ts
- * - Define TypeScript interfaces and types related to tasks.
- * - Include task properties, priorities, and completion statuses.
- */
+export interface AcademicTask {
+  id: number;
+  studentId: string;
+  title: string;
+  courseName?: string | null;
+  description?: string | null;
+  dueDate?: Date | null;
+  estimatedDuration?: number | null;
+  priority?: string | null;
+  status: string;
+}
