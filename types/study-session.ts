@@ -1,5 +1,10 @@
-/*
- * study-session.ts
- * - Define TypeScript interfaces and types related to study sessions.
- * - Include session properties, subjects, dates, durations, and statuses.
- */
+export interface StudySession {
+  id: number;
+  studentId: string;
+  taskId?: number | null;
+  title: string;
+  startTime: Date;
+  endTime: Date;
+  status: string;
+  notes?: string | null;
+}
