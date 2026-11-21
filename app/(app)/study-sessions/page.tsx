@@ -1,20 +1,47 @@
-/*
- * STUDY SESSION LIST PAGE (/study-sessions)
+/**
+ * StudySessionsPage (/study-sessions)
  *
- * - Retrieve and display the authenticated user's study sessions.
- * - Show relevant session information such as title, subject, date, duration, and status.
- * - Support filtering and sorting sessions when applicable.
- * - Provide navigation to create a new study session.
- * - Provide navigation to view or edit individual sessions.
- * - Handle empty states when the user has no study sessions.
- * - Display appropriate feedback when sessions cannot be retrieved.
+ * Main route page for viewing and managing a student's study sessions.
+ *
+ * Responsibilities:
+ * - Renders the page header, description, and primary action button to create a new session.
+ * - Wraps `StudySessionList` in a React `<Suspense>` boundary to display a loading fallback
+ *   while session data is fetched from the database.
+ * - Currently uses a temporary `studentId` until authentication is integrated.
  */
-/*Please de;lete this message after reading it*/
+
+
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { StudySessionList } from '@/components/study-sessions/SessionList';
 
 export default function StudySessionsPage() {
+  // TODO: Replace hardcoded studentId with real auth session later
+  const studentId = 1;
+
   return (
-    <main>
-      <h1>Study Sessions</h1>
+    <main className="page-container py-8">
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h1 className="text-2xl font-semibold text-foreground">
+            Study Sessions
+          </h1>
+          <p className="text-sm text-muted mt-1">
+            Plan, track, and review your focused study blocks.
+          </p>
+        </div>
+
+        <Link
+          href="/study-sessions/new"
+          className="bg-primary hover:bg-primary-hover text-white font-medium px-4 py-2 rounded-lg transition-colors"
+        >
+          + New Session
+        </Link>
+      </div>
+
+      <Suspense fallback={<p className="text-muted">Loading study sessions...</p>}>
+        <StudySessionList studentId={studentId} />
+      </Suspense>
     </main>
   );
 }
