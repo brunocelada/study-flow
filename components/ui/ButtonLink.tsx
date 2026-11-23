@@ -1,10 +1,7 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes } from "react";
 
-type ButtonLinkProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href"
-> & {
+type ButtonLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
   href: string;
   variant?: "primary" | "secondary" | "danger" | "ghost";
   size?: "sm" | "md" | "lg";
@@ -12,8 +9,7 @@ type ButtonLinkProps = Omit<
 
 const variants = {
   primary: "bg-primary text-white hover:bg-primary-hover",
-  secondary:
-    "border border-border bg-surface text-foreground hover:bg-surface-secondary",
+  secondary: "border border-border bg-surface text-foreground hover:bg-surface-secondary",
   danger: "bg-error text-white hover:bg-red-700",
   ghost: "text-muted hover:bg-surface-secondary",
 };

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,9 +43,7 @@ export default function TaskList() {
           return;
         }
 
-        setError(
-          err instanceof Error ? err.message : "Something went wrong.",
-        );
+        setError(err instanceof Error ? err.message : "Something went wrong.");
       } finally {
         if (!controller.signal.aborted) {
           setIsLoading(false);
@@ -60,10 +57,7 @@ export default function TaskList() {
   }, []);
 
   // CHANGE TASK STATUS
-  async function handleStatusChange(
-    id: Task["id"],
-    status: TaskStatus,
-  ) {
+  async function handleStatusChange(id: Task["id"], status: TaskStatus) {
     setActionError("");
     setBusyTaskId(id);
 
@@ -81,14 +75,10 @@ export default function TaskList() {
       }
 
       setTasks((currentTasks) =>
-        currentTasks.map((task) =>
-          task.id === id ? { ...task, status } : task,
-        ),
+        currentTasks.map((task) => (task.id === id ? { ...task, status } : task)),
       );
     } catch (err) {
-      setActionError(
-        err instanceof Error ? err.message : "Unable to update task.",
-      );
+      setActionError(err instanceof Error ? err.message : "Unable to update task.");
     } finally {
       setBusyTaskId(null);
     }
@@ -96,9 +86,7 @@ export default function TaskList() {
 
   // DELETE TASK
   async function handleDelete(id: Task["id"]) {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this task?",
-    );
+    const confirmed = window.confirm("Are you sure you want to delete this task?");
 
     if (!confirmed) return;
 
@@ -114,13 +102,9 @@ export default function TaskList() {
         throw new Error("Unable to delete task.");
       }
 
-      setTasks((currentTasks) =>
-        currentTasks.filter((task) => task.id !== id),
-      );
+      setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id));
     } catch (err) {
-      setActionError(
-        err instanceof Error ? err.message : "Unable to delete task.",
-      );
+      setActionError(err instanceof Error ? err.message : "Unable to delete task.");
     } finally {
       setBusyTaskId(null);
     }
@@ -148,13 +132,9 @@ export default function TaskList() {
     return (
       <Card className="border-red-200 bg-red-50">
         <div role="alert">
-          <h2 className="font-semibold text-red-700">
-            Something went wrong
-          </h2>
+          <h2 className="font-semibold text-red-700">Something went wrong</h2>
 
-          <p className="mt-1 text-sm text-red-600">
-            {error}
-          </p>
+          <p className="mt-1 text-sm text-red-600">{error}</p>
         </div>
       </Card>
     );
@@ -162,7 +142,6 @@ export default function TaskList() {
 
   return (
     <div className="space-y-4">
-
       {/* ACTION ERROR */}
       {actionError && (
         <p
@@ -176,18 +155,13 @@ export default function TaskList() {
       {/* EMPTY STATE */}
       {tasks.length === 0 ? (
         <Card className="border-dashed px-6 py-12 text-center">
-          <h2 className="text-lg font-semibold text-slate-900">
-            No tasks yet
-          </h2>
+          <h2 className="text-lg font-semibold text-slate-900">No tasks yet</h2>
 
           <p className="mt-2 text-sm text-slate-500">
             Create your first task to start organizing your academic work.
           </p>
 
-          <ButtonLink
-            href="/tasks/new"
-            className="mt-5"
-          >
+          <ButtonLink href="/tasks/new" className="mt-5">
             Create your first task
           </ButtonLink>
         </Card>

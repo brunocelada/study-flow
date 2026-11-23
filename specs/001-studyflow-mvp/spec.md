@@ -18,7 +18,7 @@ between separate task lists and session logs. The primary audience is an individ
 needs a clear view of upcoming academic work and recent study activity. The MVP is designed for
 one student per account; shared courses, teams, and instructor administration are outside scope.
 
-## User Scenarios & Testing *(mandatory)*
+## User Scenarios & Testing _(mandatory)_
 
 ### User Story 1 - Create and access a private account (Priority: P0)
 
@@ -163,7 +163,7 @@ reminders must be independently verified before release.
 - Deleting a task that is linked to a study session must follow the task-deletion behavior agreed by the team.
 - Requests for records owned by another student do not disclose whether those records exist.
 
-## Requirements *(mandatory)*
+## Requirements _(mandatory)_
 
 ### Functional Requirements
 
@@ -207,19 +207,19 @@ reminders must be independently verified before release.
 
 The API structure will be finalized during technical planning. The MVP must support authentication, task management, study-session management, and dashboard data while enforcing account ownership and protecting private student data.
 
-| Method | Endpoint | Purpose |
-| --- | --- | --- |
-| GET | `/api/tasks` | List the current student's tasks; support optional status and due-date filters |
-| POST | `/api/tasks` | Create a task for the current student |
-| GET | `/api/tasks/{taskId}` | Read one owned task |
-| PATCH | `/api/tasks/{taskId}` | Update an owned task or its completion status |
-| DELETE | `/api/tasks/{taskId}` | Delete an owned task and handle linked study sessions according to the agreed task-deletion behavior |
-| GET | `/api/study-sessions` | List the current student's sessions; support an optional date range |
-| POST | `/api/study-sessions` | Create a session, optionally linked to an owned task |
-| GET | `/api/study-sessions/{sessionId}` | Read one owned session |
-| PATCH | `/api/study-sessions/{sessionId}` | Update an owned session or its completion status |
-| DELETE | `/api/study-sessions/{sessionId}` | Delete an owned session |
-| GET | `/api/dashboard` | Return upcoming tasks, upcoming sessions, and recent completed activity |
+| Method | Endpoint                          | Purpose                                                                                              |
+| ------ | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| GET    | `/api/tasks`                      | List the current student's tasks; support optional status and due-date filters                       |
+| POST   | `/api/tasks`                      | Create a task for the current student                                                                |
+| GET    | `/api/tasks/{taskId}`             | Read one owned task                                                                                  |
+| PATCH  | `/api/tasks/{taskId}`             | Update an owned task or its completion status                                                        |
+| DELETE | `/api/tasks/{taskId}`             | Delete an owned task and handle linked study sessions according to the agreed task-deletion behavior |
+| GET    | `/api/study-sessions`             | List the current student's sessions; support an optional date range                                  |
+| POST   | `/api/study-sessions`             | Create a session, optionally linked to an owned task                                                 |
+| GET    | `/api/study-sessions/{sessionId}` | Read one owned session                                                                               |
+| PATCH  | `/api/study-sessions/{sessionId}` | Update an owned session or its completion status                                                     |
+| DELETE | `/api/study-sessions/{sessionId}` | Delete an owned session                                                                              |
+| GET    | `/api/dashboard`                  | Return upcoming tasks, upcoming sessions, and recent completed activity                              |
 
 Unauthenticated requests to protected endpoints MUST be rejected. Invalid input MUST return a
 field-level validation response. Requests for unavailable or non-owned records MUST return a
@@ -240,7 +240,6 @@ not-found response without disclosing ownership or record existence.
 - The implementation MUST fit a six-week academic project. P0 is the release target; P1 is
   conditional on completing P0; P2 is explicitly deferred unless scope and schedule are revised.
 - Every change MUST use a feature branch and pull request, pass required checks, and receive at least one teammate review before merge. Direct pushes to the default branch are prohibited.
-
 
 ### Key Entities
 
@@ -266,7 +265,7 @@ not-found response without disclosing ownership or record existence.
 - No production scale or uptime target is provided; success is measured against a small academic
   project pilot.
 
-## Success Criteria *(mandatory)*
+## Success Criteria _(mandatory)_
 
 ### Measurable Outcomes
 

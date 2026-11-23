@@ -13,12 +13,7 @@ const paddings: Record<CardPadding, string> = {
   lg: "p-6",
 };
 
-export default function Card({
-  children,
-  padding = "md",
-  className = "",
-  ...props
-}: CardProps) {
+export default function Card({ children, padding = "md", className = "", ...props }: CardProps) {
   return (
     <div
       className={`rounded-xl border border-border bg-surface shadow-sm

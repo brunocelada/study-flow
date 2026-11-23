@@ -11,10 +11,6 @@
  * - Render the selected page through the children prop.
  */
 
-export default function AppLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AppLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

@@ -15,18 +15,14 @@ export default function TasksPage() {
             Academic workload
           </p>
 
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-            My Tasks
-          </h1>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900">My Tasks</h1>
 
           <p className="mt-2 text-slate-500">
             Organize your assignments and keep track of your deadlines.
           </p>
         </div>
 
-         <ButtonLink href="/tasks/new">
-          + New Task
-        </ButtonLink>
+        <ButtonLink href="/tasks/new">+ New Task</ButtonLink>
       </header>
 
       <TaskList />
