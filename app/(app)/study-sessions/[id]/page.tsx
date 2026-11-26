@@ -19,46 +19,58 @@ interface StudySessionDetailsPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function StudySessionDetailsPage({ params, }: StudySessionDetailsPageProps) {
+async function SuspendedSessionContent({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
-  const sessionId = Number(id);
+  const session_id = Number(id);
 
-  //Guard against invalid URLs like /study-sessions/abc
-  if (isNaN(sessionId) || sessionId <= 0) {
+  if (isNaN(session_id) || session_id <= 0) {
     notFound();
   }
-   // TODO: Replace hardcoded studentId with real auth session later
-  const studentId = 1;
+
+  const student_id = "usr_01a9b8c7";
 
   return (
+    <>
+      <div className="flex items-center gap-3 mb-6">
+        <Link
+          href={`/study-sessions/${session_id}/edit`}
+          className="bg-primary hover:bg-primary-hover text-white font-medium px-4 py-2 rounded-lg text-sm transition-colors"
+        >
+          Update Session
+        </Link>
+        <Link
+          href={`/study-sessions/${session_id}/delete`}
+          className="bg-error-light hover:bg-error hover:text-white text-error font-medium px-4 py-2 rounded-lg text-sm transition-colors"
+        >
+          Delete Session
+        </Link>
+      </div>
+
+      <StudySessionDetails session_id={session_id} student_id={student_id} />
+    </>
+  );
+}
+
+export default function StudySessionDetailsPage({
+  params,
+}: StudySessionDetailsPageProps) {
+  return (
     <main className="page-container py-8">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+      <div className="mb-6">
         <Link
           href="/study-sessions"
           className="text-sm font-medium text-muted hover:text-primary transition-colors"
         >
           ← Back to Study Sessions
         </Link>
-
-        <div className="flex items-center gap-3">
-          <Link
-            href={`/study-sessions/${sessionId}/edit`}
-            className="bg-primary hover:bg-primary-hover text-white font-medium px-4 py-2 rounded-lg text-sm transition-colors"
-          >
-            Update Session
-          </Link>
-
-          <Link
-            href={`/study-sessions/${sessionId}/delete`}
-            className="bg-error-light hover:bg-error hover:text-white text-error font-medium px-4 py-2 rounded-lg text-sm transition-colors"
-          >
-            Delete Session
-          </Link>
-        </div>
       </div>
 
       <Suspense fallback={<p className="text-muted">Loading session details...</p>}>
-        <StudySessionDetails sessionId={sessionId} studentId={studentId} />
+        <SuspendedSessionContent params={params} />
       </Suspense>
     </main>
   );

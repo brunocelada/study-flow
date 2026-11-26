@@ -18,15 +18,15 @@ import { statusStyles } from '@/lib/styles/session-status';
 import { formatSessionDate, formatSessionTimeRange } from '@/lib/dates';
 
 interface StudySessionListProps {
-  studentId: number;
+  student_id: string;
 }
 
-export async function StudySessionList({ studentId }: StudySessionListProps) {
+export async function StudySessionList({ student_id }: StudySessionListProps) {
   await connection();
   let sessions: StudySession[] = [];
 
   try {
-    sessions = await getStudySessionsByStudent(studentId);
+    sessions = await getStudySessionsByStudent(student_id);
   } catch (error) {
     console.error('Failed to retrieve sessions for this student', error);
     throw new Error('No study sessions found for this student.');
@@ -70,8 +70,8 @@ export async function StudySessionList({ studentId }: StudySessionListProps) {
           </div>
 
           <p className="mt-2 text-sm text-muted">
-            {formatSessionDate(session.startTime)} •{' '}
-            {formatSessionTimeRange(session.startTime, session.endTime)}
+            {formatSessionDate(session.start_time)} •{' '}
+            {formatSessionTimeRange(session.start_time, session.end_time)}
           </p>
 
 

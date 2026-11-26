@@ -17,7 +17,7 @@ import { StudySessionList } from '@/components/study-sessions/SessionList';
 
 export default function StudySessionsPage() {
   // TODO: Replace hardcoded studentId with real auth session later
-  const studentId = 1;
+  const student_id = "usr_01a9b8c7";
 
   return (
     <main className="page-container py-8">
@@ -40,7 +40,7 @@ export default function StudySessionsPage() {
       </div>
 
       <Suspense fallback={<p className="text-muted">Loading study sessions...</p>}>
-        <StudySessionList studentId={studentId} />
+        <StudySessionList student_id={student_id} />
       </Suspense>
     </main>
   );

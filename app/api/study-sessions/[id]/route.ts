@@ -21,7 +21,7 @@ export async function GET(
         if (!session){
             return NextResponse.json(
                 { error: 'StudySession not found'},
-                { status: 400 }
+                { status: 404 }
             )
         }
         

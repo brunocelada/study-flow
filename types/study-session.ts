@@ -6,11 +6,11 @@ export type SessionStatus =
 
 export interface StudySession {
   id: number;
-  studentId: number;
-  taskId: number | null;
+  student_id: string;
+  task_id: number | null;
   title: string;
-  startTime: Date;
-  endTime: Date;
+  start_time: Date;
+  end_time: Date;
   status: SessionStatus;
   notes: string | null;
 }  

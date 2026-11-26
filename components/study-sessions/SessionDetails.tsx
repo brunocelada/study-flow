@@ -21,24 +21,24 @@ import { formatSessionDate, formatSessionTimeRange } from "@/lib/dates";
 import { statusStyles } from "@/lib/styles/session-status";
 
 interface StudySessionDetailsProps {
-    sessionId: number;
-    studentId: number;
+    session_id: number;
+    student_id: string;
 }
 
-export async function StudySessionDetails({ sessionId }: StudySessionDetailsProps) {
+export async function StudySessionDetails({ session_id, student_id }: StudySessionDetailsProps) {
     await connection();
     let session: StudySession | null = null
     
     //Database access
     try{
-        session = await getStudySessionById(sessionId);
+        session = await getStudySessionById(session_id, student_id);
     }catch (error) {
         console.error('Failed to retreive study session', error);
         throw new Error('Study session not available at this time. Please try again later.');
     }
 
     //Trigger Next.js 404 page if the ID doesn't exist in the DB
-    if (!session) {
+    if (!session || session.student_id !== student_id) {
         notFound();
     }
 
@@ -51,8 +51,8 @@ export async function StudySessionDetails({ sessionId }: StudySessionDetailsProp
                         {session.title}
                     </h1>
                     <p>
-                        {formatSessionDate(session.startTime)}
-                        {formatSessionTimeRange(session.endTime, session.endTime)}
+                        {formatSessionDate(session.start_time)}
+                        {formatSessionTimeRange(session.start_time, session.end_time)}
                     </p>
                 </div>
 
