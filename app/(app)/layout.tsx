@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import UserMenu from "@/components/layout/UserMenu";
 
+export const instant = false;
+
 export default async function AppLayout({
   children,
 }: {
