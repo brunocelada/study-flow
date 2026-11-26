@@ -57,37 +57,24 @@ export default function TaskCard({
 }: TaskCardProps) {
   const isCompleted = task.status === "completed";
 
-  const isOverdue =
-    task.dueDate !== null &&
-    task.dueDate < getToday() &&
-    !isCompleted;
+  const isOverdue = task.dueDate !== null && task.dueDate < getToday() && !isCompleted;
 
-    const nextStatus: TaskStatus = isCompleted
-        ? "pending"
-        : "completed";
+  const nextStatus: TaskStatus = isCompleted ? "pending" : "completed";
 
   return (
     <Card>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-
         {/* TASK INFORMATION */}
         <div className="min-w-0 flex-1">
-
           {/* PRIORITY AND STATUS */}
           <div className="mb-3 flex flex-wrap items-center gap-2">
             <Badge variant={priorityVariants[task.priority]}>
-              {task.priority.charAt(0).toUpperCase() +
-                task.priority.slice(1)}{" "}
-              priority
+              {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)} priority
             </Badge>
 
-            <Badge variant={statusVariants[task.status]}>
-              {statusLabels[task.status]}
-            </Badge>
+            <Badge variant={statusVariants[task.status]}>{statusLabels[task.status]}</Badge>
 
-            {isOverdue && (
-              <Badge variant="danger">Overdue</Badge>
-            )}
+            {isOverdue && <Badge variant="danger">Overdue</Badge>}
           </div>
 
           {/* TITLE */}
@@ -101,18 +88,10 @@ export default function TaskCard({
           </Link>
 
           {/* COURSE */}
-          {task.course && (
-            <p className="mt-1 text-sm font-medium text-slate-600">
-              {task.course}
-            </p>
-          )}
+          {task.course && <p className="mt-1 text-sm font-medium text-slate-600">{task.course}</p>}
 
           {/* DESCRIPTION */}
-          {task.description && (
-            <p className="mt-2 text-sm text-slate-500">
-              {task.description}
-            </p>
-          )}
+          {task.description && <p className="mt-2 text-sm text-slate-500">{task.description}</p>}
 
           {/* DUE DATE AND DURATION */}
           <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500">
@@ -125,9 +104,7 @@ export default function TaskCard({
               </span>
             )}
 
-            {task.estimatedDuration !== null && (
-              <span>{task.estimatedDuration} min</span>
-            )}
+            {task.estimatedDuration !== null && <span>{task.estimatedDuration} min</span>}
           </div>
         </div>
 

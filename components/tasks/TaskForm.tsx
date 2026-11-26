@@ -1,15 +1,9 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
-import type {
-  Task,
-  TaskInput,
-  TaskPriority,
-  TaskStatus,
-} from "@/types/task";
+import type { Task, TaskInput, TaskPriority, TaskStatus } from "@/types/task";
 
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
@@ -33,10 +27,7 @@ interface TaskFormValues {
   status: TaskStatus;
 }
 
-export default function TaskForm({
-  mode,
-  task,
-}: TaskFormProps) {
+export default function TaskForm({ mode, task }: TaskFormProps) {
   const router = useRouter();
 
   const isEditing = mode === "edit";
@@ -55,10 +46,7 @@ export default function TaskForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // UPDATE FORM VALUES
-  function updateField<K extends keyof TaskFormValues>(
-    field: K,
-    value: TaskFormValues[K],
-  ) {
+  function updateField<K extends keyof TaskFormValues>(field: K, value: TaskFormValues[K]) {
     setValues((current) => ({
       ...current,
       [field]: value,
@@ -81,14 +69,9 @@ export default function TaskForm({
     }
 
     const duration =
-      values.estimatedDuration.trim() === ""
-        ? null
-        : Number(values.estimatedDuration);
+      values.estimatedDuration.trim() === "" ? null : Number(values.estimatedDuration);
 
-    if (
-      duration !== null &&
-      (!Number.isInteger(duration) || duration <= 0)
-    ) {
+    if (duration !== null && (!Number.isInteger(duration) || duration <= 0)) {
       setError("Estimated duration must be a positive number of minutes.");
       return;
     }
@@ -106,9 +89,7 @@ export default function TaskForm({
     setIsSubmitting(true);
 
     try {
-      const url = isEditing
-        ? `/api/tasks/${task!.id}`
-        : "/api/tasks";
+      const url = isEditing ? `/api/tasks/${task!.id}` : "/api/tasks";
 
       const response = await fetch(url, {
         method: isEditing ? "PATCH" : "POST",
@@ -134,9 +115,7 @@ export default function TaskForm({
 
       router.push("/tasks");
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Unable to save task.",
-      );
+      setError(err instanceof Error ? err.message : "Unable to save task.");
     } finally {
       setIsSubmitting(false);
     }
@@ -147,7 +126,6 @@ export default function TaskForm({
   return (
     <Card padding="lg">
       <form onSubmit={handleSubmit} className="space-y-6">
-
         {/* ERROR MESSAGE */}
         {error && (
           <p
@@ -202,9 +180,7 @@ export default function TaskForm({
             id="description"
             name="description"
             value={values.description}
-            onChange={(event) =>
-              updateField("description", event.target.value)
-            }
+            onChange={(event) => updateField("description", event.target.value)}
             placeholder="Add details about this task..."
             rows={4}
           />
@@ -222,9 +198,7 @@ export default function TaskForm({
               name="dueDate"
               type="date"
               value={values.dueDate}
-              onChange={(event) =>
-                updateField("dueDate", event.target.value)
-              }
+              onChange={(event) => updateField("dueDate", event.target.value)}
             />
           </div>
 
@@ -240,9 +214,7 @@ export default function TaskForm({
               min="1"
               step="1"
               value={values.estimatedDuration}
-              onChange={(event) =>
-                updateField("estimatedDuration", event.target.value)
-              }
+              onChange={(event) => updateField("estimatedDuration", event.target.value)}
               placeholder="e.g. 60"
             />
           </div>
@@ -259,9 +231,7 @@ export default function TaskForm({
               id="priority"
               name="priority"
               value={values.priority}
-              onChange={(event) =>
-                updateField("priority", event.target.value as TaskPriority)
-              }
+              onChange={(event) => updateField("priority", event.target.value as TaskPriority)}
             >
               <option value="low">Low</option>
               <option value="medium">Medium</option>
@@ -279,9 +249,7 @@ export default function TaskForm({
                 id="status"
                 name="status"
                 value={values.status}
-                onChange={(event) =>
-                  updateField("status", event.target.value as TaskStatus)
-                }
+                onChange={(event) => updateField("status", event.target.value as TaskStatus)}
               >
                 <option value="pending">Pending</option>
                 <option value="in_progress">In Progress</option>
@@ -293,17 +261,11 @@ export default function TaskForm({
 
         {/* FORM ACTIONS */}
         <div className="flex flex-col-reverse gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
-          <ButtonLink
-            href="/tasks"
-            variant="secondary"
-          >
+          <ButtonLink href="/tasks" variant="secondary">
             Cancel
           </ButtonLink>
 
-          <Button
-            type="submit"
-            loading={isSubmitting}
-          >
+          <Button type="submit" loading={isSubmitting}>
             {isEditing ? "Save Changes" : "Create Task"}
           </Button>
         </div>

@@ -18,11 +18,7 @@ export default function Select({
         outline-none transition-colors
         focus:border-primary focus:ring-2 focus:ring-primary-light
         disabled:cursor-not-allowed disabled:bg-surface-secondary disabled:text-muted
-        ${
-          invalid
-            ? "border-error focus:border-error focus:ring-error-light"
-            : "border-border"
-        }
+        ${invalid ? "border-error focus:border-error focus:ring-error-light" : "border-border"}
         ${className}`}
     >
       {children}

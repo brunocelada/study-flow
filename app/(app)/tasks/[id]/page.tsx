@@ -9,6 +9,10 @@ import type { Task } from "@/types/task";
 export default function TaskDetailsPage() {
   const { id } = useParams<{ id: string }>();
 
+  return <TaskDetails key={id} id={id} />;
+}
+
+function TaskDetails({ id }: { id: string }) {
   const [task, setTask] = useState<Task | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -38,9 +42,7 @@ export default function TaskDetailsPage() {
           return;
         }
 
-        setError(
-          err instanceof Error ? err.message : "Something went wrong.",
-        );
+        setError(err instanceof Error ? err.message : "Something went wrong.");
       } finally {
         if (!controller.signal.aborted) {
           setIsLoading(false);
@@ -65,17 +67,10 @@ export default function TaskDetailsPage() {
   if (error || !task) {
     return (
       <main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
-        <div
-          role="alert"
-          className="rounded-xl border border-red-200 bg-red-50 p-6"
-        >
-          <h1 className="text-xl font-semibold text-red-700">
-            {error || "Task not found"}
-          </h1>
+        <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-6">
+          <h1 className="text-xl font-semibold text-red-700">{error || "Task not found"}</h1>
 
-          <p className="mt-2 text-sm text-red-600">
-            The requested task could not be loaded.
-          </p>
+          <p className="mt-2 text-sm text-red-600">The requested task could not be loaded.</p>
 
           <Link
             href="/tasks"
@@ -91,20 +86,13 @@ export default function TaskDetailsPage() {
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
       <div className="mb-8">
-        <Link
-          href="/tasks"
-          className="text-sm font-medium text-blue-600 hover:text-blue-700"
-        >
+        <Link href="/tasks" className="text-sm font-medium text-blue-600 hover:text-blue-700">
           ← Back to Tasks
         </Link>
 
-        <h1 className="mt-5 text-3xl font-bold tracking-tight text-slate-900">
-          Task Details
-        </h1>
+        <h1 className="mt-5 text-3xl font-bold tracking-tight text-slate-900">Task Details</h1>
 
-        <p className="mt-2 text-slate-500">
-          View and update your task information.
-        </p>
+        <p className="mt-2 text-slate-500">View and update your task information.</p>
       </div>
 
       <TaskForm mode="edit" task={task} />

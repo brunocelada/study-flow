@@ -1,15 +1,10 @@
 import type { TextareaHTMLAttributes } from "react";
 
-interface TextareaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   invalid?: boolean;
 }
 
-export default function Textarea({
-  invalid = false,
-  className = "",
-  ...props
-}: TextareaProps) {
+export default function Textarea({ invalid = false, className = "", ...props }: TextareaProps) {
   return (
     <textarea
       {...props}
@@ -19,11 +14,7 @@ export default function Textarea({
         placeholder:text-muted
         focus:border-primary focus:ring-2 focus:ring-primary-light
         disabled:cursor-not-allowed disabled:bg-surface-secondary disabled:text-muted
-        ${
-          invalid
-            ? "border-error focus:border-error focus:ring-error-light"
-            : "border-border"
-        }
+        ${invalid ? "border-error focus:border-error focus:ring-error-light" : "border-border"}
         ${className}`}
     />
   );
