@@ -5,8 +5,8 @@ export async function GET() {
     await connection();
     try{
         //replace this hardcores student id with real auth session later
-        const studentId = 1;
-        const sessions = await getStudySessionsByStudent(studentId);
+        const student_id = "usr_01a9b8c7";
+        const sessions = await getStudySessionsByStudent(student_id);
         return NextResponse.json(sessions, { status: 200});
     }catch(error){
         console.error('GET /api/study-sessions error:', error);

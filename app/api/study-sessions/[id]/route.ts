@@ -7,16 +7,17 @@ export async function GET(
 ) {
     try{
         const { id } = await params;
-        const sessionId = Number(id);
+        const session_id = Number(id);
         //Guard against non-numeric IDs like /api/study-session/abc
-        if (isNaN(sessionId)){
+        if (isNaN(session_id) || session_id <= 0){
             return NextResponse.json(
                 { error: 'Invalid session ID'},
-                { status: 500}
+                { status: 400}
             );
         }
-
-        const session = await getStudySessionById(sessionId);
+        //simulates a session, delete when authentication is ready
+        const student_id = "usr_01a9b8c7";
+        const session = await getStudySessionById(session_id, student_id);
         
         if (!session){
             return NextResponse.json(
