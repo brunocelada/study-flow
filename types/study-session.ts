@@ -1,10 +1,16 @@
+export type SessionStatus = 
+  | 'scheduled'
+  | 'in-progress'
+  | 'completed'
+  | 'cancelled';
+
 export interface StudySession {
   id: number;
-  studentId: string;
-  taskId?: number | null;
+  student_id: string;
+  task_id: number | null;
   title: string;
-  startTime: Date;
-  endTime: Date;
-  status: string;
-  notes?: string | null;
-}
+  start_time: Date;
+  end_time: Date;
+  status: SessionStatus;
+  notes: string | null;
+}  
