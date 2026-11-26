@@ -1,6 +1,9 @@
-/*
- * UserMenu.tsx
- * - Display the authenticated user's menu.
- * - Provide access to the profile and account-related actions.
- * - Include the logout option.
- */
+import { logoutAction } from "@/app/(auth)/actions";
+
+export default function UserMenu() {
+  return (
+    <form action={logoutAction}>
+      <button type="submit">Sign out</button>
+    </form>
+  );
+}

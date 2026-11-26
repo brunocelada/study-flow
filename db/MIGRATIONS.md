@@ -10,6 +10,7 @@ Run the migration files in the following order:
 2. `002_create_academic_tasks.sql`
 3. `003_create_study_sessions.sql`
 4. `004_create_indexes.sql`
+5. `005_add_password_hash_to_users.sql`
 
 ## Migration Details
 
@@ -51,11 +52,17 @@ Creates indexes for frequently queried columns related to:
 - session start times
 - session status
 
+### 005_add_password_hash_to_users.sql
+
+Adds the `password_hash` column to the existing `users` table.
+
+This column stores the hashed password used by the authentication feature.
+
 ## Notes
 
 - Run these scripts against a PostgreSQL database.
 - The current project uses Neon Postgres.
 - The scripts use `IF NOT EXISTS` where applicable so they can be safely reviewed against an existing environment.
 - Task priority, task status, and study-session status values are not currently enforced as database enums because those values have not yet been finalized by the team.
-- Authentication-specific database changes, including password storage, are handled separately by the authentication feature until that work is integrated into the shared database baseline.
+- Authentication-specific password storage is introduced by `005_add_password_hash_to_users.sql`.
 - Test seed data is intentionally not included in the migration sequence to avoid inserting development records into the shared database.
